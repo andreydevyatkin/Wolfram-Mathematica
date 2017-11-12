@@ -1,0 +1,140 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4767,        132]
+NotebookOptionsPosition[      4362,        116]
+NotebookOutlinePosition[      4706,        131]
+CellTagsIndexPosition[      4663,        128]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"f", "[", "a_", "]"}], ":=", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"x", "'"}], "[", "t", "]"}], "\[Equal]", 
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{
+          RowBox[{"x", "[", "t", "]"}], "^", "a"}]}], "+", 
+        RowBox[{"y", "[", "t", "]"}]}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"y", "'"}], "[", "t", "]"}], "\[Equal]", 
+       RowBox[{"-", 
+        RowBox[{"x", "[", "t", "]"}]}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"x", "[", "0", "]"}], "\[Equal]", 
+       RowBox[{"y", "[", "0", "]"}], "\[Equal]", "1"}]}], 
+     "\[IndentingNewLine]", "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"solution1", "=", 
+   RowBox[{"NDSolve", "[", 
+    RowBox[{
+     RowBox[{"f", "[", "7", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "12"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ParametricPlot", "[", 
+  RowBox[{
+   RowBox[{"Evaluate", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"x", "[", "t", "]"}], ",", 
+       RowBox[{"y", "[", "t", "]"}]}], "}"}], "/.", "solution1"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", "12"}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.719492092407823*^9, 3.719492193238983*^9}, {
+   3.7194925171522436`*^9, 3.7194925178183255`*^9}, {3.7194925778709793`*^9, 
+   3.7194926065638895`*^9}, {3.7194927008693695`*^9, 3.719492793379856*^9}, {
+   3.7194928422031007`*^9, 3.7194928742155743`*^9}, {3.719492943703663*^9, 
+   3.719492969700776*^9}, {3.719493051432517*^9, 3.719493297631115*^9}, {
+   3.7194933427320027`*^9, 3.7194934148403273`*^9}, {3.719493481600582*^9, 
+   3.71949351491672*^9}, {3.719493567877305*^9, 3.7194936761829796`*^9}, {
+   3.7194938072274547`*^9, 3.7194940709446683`*^9}, {3.719494137799837*^9, 
+   3.7194943640974135`*^9}, {3.7194943991510983`*^9, 3.719494410902317*^9}, {
+   3.7194958863999553`*^9, 3.719496065832181*^9}, {3.7194961088312235`*^9, 
+   3.71949612880157*^9}, {3.7194962371760764`*^9, 3.719496309771617*^9}, {
+   3.719496359797496*^9, 3.7194964361840243`*^9}, {3.7194968022832136`*^9, 
+   3.719496902744996*^9}, {3.7194969475186152`*^9, 3.7194969565985126`*^9}, {
+   3.7194969923836355`*^9, 3.71949703262202*^9}, {3.7194971165197887`*^9, 
+   3.719497130553634*^9}, 3.7194972030060425`*^9, {3.7194972390893035`*^9, 
+   3.719497240001356*^9}, 3.719497274452133*^9, {3.71949731670522*^9, 
+   3.719497471940811*^9}},ExpressionUUID->"f829d9e7-6bc5-4790-be39-\
+95dda81db597"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"solution2", "=", 
+   RowBox[{"ParallelTable", "[", 
+    RowBox[{
+     RowBox[{"NDSolve", "[", 
+      RowBox[{
+       RowBox[{"f", "[", "a", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "5"}], "}"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"a", ",", "0", ",", "3"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ParametricPlot", "[", 
+  RowBox[{
+   RowBox[{"Evaluate", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"x", "[", "t", "]"}], ",", 
+       RowBox[{"y", "[", "t", "]"}]}], "}"}], "/.", "solution2"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", "5"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7194970534156075`*^9, 3.719497055342926*^9}, {
+  3.7194971551919746`*^9, 3.719497168389482*^9}, {3.7194974067504816`*^9, 
+  3.7194974070010347`*^9}, {3.719497479067875*^9, 
+  3.719497530833846*^9}},ExpressionUUID->"dfe7b05f-a3d4-4381-9f5e-\
+75215c3c61b6"]
+},
+WindowSize->{1366, 685},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (March 13, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 2750, 63, 219, "Input", "ExpressionUUID" -> \
+"f829d9e7-6bc5-4790-be39-95dda81db597"],
+Cell[3311, 85, 1047, 29, 84, "Input", "ExpressionUUID" -> \
+"dfe7b05f-a3d4-4381-9f5e-75215c3c61b6"]
+}
+]
+*)
+
